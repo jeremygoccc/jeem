@@ -1,2 +1,2 @@
 # jem
-a framework based on the react-redux &amp; redux-saga
+a framework based on the react &amp; react-dom &amp; react-router
