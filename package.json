@@ -1,0 +1,19 @@
+{
+  "name": "jem",
+  "version": "0.0.1",
+  "description": "",
+  "main": "/packages/jem/src/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/fxbabys/jem.git"
+  },
+  "author": "Jeremy",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/fxbabys/jem/issues"
+  },
+  "homepage": "https://github.com/fxbabys/jem#readme"
+}
