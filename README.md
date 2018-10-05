@@ -1,2 +1,2 @@
 # jeem
-a framework based on the react &amp; react-dom &amp; react-router
+a mini state-manager library(jeem-core) for react(with react-router-dom & antd) 
