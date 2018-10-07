@@ -1,0 +1,43 @@
+{
+  "name": "jeem",
+  "version": "0.0.2",
+  "description": "A mini frontend framework based on react-router & ant-design",
+  "main": "lib/index.js",
+  "directories": {
+    "lib": "lib"
+  },
+  "babel": {
+    "presets": [
+      "@babel/preset-env",
+      "@babel/preset-react"
+    ]
+  },
+  "dependencies": {
+    "invariant": "^2.2.4",
+    "jeem-core": "0.0.1",
+    "react": "^16.5.1",
+    "react-dom": "^16.5.1",
+    "react-router-dom": "^4.3.1"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.0.0",
+    "@babel/core": "^7.0.1",
+    "@babel/plugin-transform-runtime": "^7.1.0",
+    "@babel/preset-env": "^7.0.0",
+    "@babel/preset-react": "^7.0.0"
+  },
+  "scripts": {
+    "compile": "babel -d lib/ src/",
+    "prepublish": "npm run compile"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/fxbabys/jeem.git"
+  },
+  "author": "Jeremy",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/fxbabys/jeem/issues"
+  },
+  "homepage": "https://github.com/fxbabys/jeem#readme"
+}
