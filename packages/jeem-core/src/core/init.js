@@ -8,7 +8,16 @@ const app = {
   init
 };
 
-function init(model) {
+const initModel = {
+  namespace: '@@jeem',
+  state: {}
+}
+
+function init(model = {
+  models: {
+    initModel
+  }
+}) {
   const { models } = model
   const dispatch = {}
 
@@ -46,7 +55,7 @@ function injectStore(model) {
         if (!callFlag) {
           for (let _key in effects) {
             if (_key === name) {
-              state = effects[name](state, action);
+              effects[name](state, action);
               callFlag = true;
               break;
             }
