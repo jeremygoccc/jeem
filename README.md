@@ -5,7 +5,7 @@ jeem 是一个没有redux的冗余模板代码并且拥有完全轻量的核心�
 
 前端界面的展现就是 state + view：react -> view &&  jeem -> state
 
-###核心API
+### 核心API
 
 - init: store setup (*)　依据model初始化全局store
 - router: router register 路由注册
@@ -70,7 +70,7 @@ export default {
 在 view 中如何改变 state (call reducers) ?
 
 ```js
-dispatch.modelName.reducerName/effectName(payload)
+dispatch.modelNamespace.reducerName/effectName(payload)
 ```
 
 如何将 view 与 state 相关联 ?
@@ -92,6 +92,45 @@ export default connect(mapStateToProps, mapDispatchToProps)(Todo)
 
 connect 之后 state 改变就会自动触发 view 的改变
 
+### 目录结构
+
+```
+|--- src
+  |--- component    # 组件目录
+  |--- constants    # 常量定义目录
+  |--- models       # model目录
+  |--- routes       # state-view关联目录 connect()
+  |--- service      # api目录
+  |--- index.css
+  |--- index.html
+  |--- index.js     # app初始化
+  |--- router.js    # 路由文件
+|--- package.json
+|--- webpack.config.js
+```
+
+
+
+### 开始
+
+这里提供了一个脚手架工具用来快速生成 jeem 项目:
+
+```
+npm install jeem-cli -g
+
+jeem new my-jeem-app
+
+cd my-jeem-app && npm install && npm start
+```
+
+同时提供了一个示例模板:
+
+```
+jeem new jeem-demo --demo
+```
+
+start 以后访问 http://localhost:8080出现 TodoList 即可参照进行开发
+
 ### 对比
 
 jeem 灵感的来源: [dva](https://github.com/dvajs/dva) + [rematch](https://github.com/rematch/rematch)
@@ -103,15 +142,17 @@ jeem 灵感的来源: [dva](https://github.com/dvajs/dva) + [rematch](https://gi
 
 jeem的特点:
 
-- 完全轻量的核心, 只暴露出 Provider & connect 针对 view 关联 state 所需的最小 api, 其余语法完全基于es6(7)
+- 完全轻量的核心, 只暴露出 Provider & connect 针对 view +state 操作所需的最小 api, 其余模块完全基于es6(7)
 - 核心专注于 state , 上层内置 react-router + antd + fetch 用来处理 路由 UI 与 数据请求
 
-目前 jeem 已经可以完成一个 react app的从开发到上线的整体流程
+目前 jeem 已经可以完成一个 react app从开发到编译打包上线的整体流程
 
 ### Todo
 
 - 增加model的subscriptions: 有些情形采用订阅数据源的方式会更合适(keyboard输入 history路由变化等等)
 - 支持state操作过程中的middleware
+- 增加路由约定(参考umi约定即路由), 优化现有目录结构
+- 优化 webpack 配置，提升 start 开发以及 build 上线整体体验
 - 支持插件化的机制(maybe...)
 - Typescript重构(maybe too...)
 - more...
