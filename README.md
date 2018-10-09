@@ -1,5 +1,5 @@
 # jeem
-jeem 是一个没有redux的冗余模板代码并且拥有完全轻量的核心，可以更高效地创建react应用的微型框架
+jeem 是一个拥有完全轻量的核心，可以更高效地创建react应用的微型框架
 
 ### 理念
 
@@ -33,7 +33,7 @@ app.start(/*your node*/)
 - effects: async actions　所有与外界相关的操作->同步触发reducers
 - ......
 
-One bilotelma:
+One template:
 
 ```js
 export default {
@@ -129,7 +129,7 @@ cd my-jeem-app && npm install && npm start
 jeem new jeem-demo --demo
 ```
 
-start 以后访问 http://localhost:8080出现 TodoList 即可参照进行开发
+start 以后访问 http://localhost:8080 出现 TodoList 即可参照进行开发
 
 ### 对比
 
@@ -142,7 +142,7 @@ jeem 灵感的来源: [dva](https://github.com/dvajs/dva) + [rematch](https://gi
 
 jeem的特点:
 
-- 完全轻量的核心, 只暴露出 Provider & connect 针对 view +state 操作所需的最小 api, 其余模块完全基于es6(7)
+- 完全轻量的核心, 只暴露出 Provider & connect 针对 view + state 操作所需的最小 api, 其余模块完全基于es6(7)
 - 核心专注于 state , 上层内置 react-router + antd + fetch 用来处理 路由 UI 与 数据请求
 
 目前 jeem 已经可以完成一个 react app从开发到编译打包上线的整体流程
@@ -150,7 +150,7 @@ jeem的特点:
 ### Todo
 
 - 增加model的subscriptions: 有些情形采用订阅数据源的方式会更合适(keyboard输入 history路由变化等等)
-- 支持state操作过程中的middleware
+- 支持state操作过程中的middleware: reducers中不宜做过多判断
 - 增加路由约定(参考umi约定即路由), 优化现有目录结构
 - 优化 webpack 配置，提升 start 开发以及 build 上线整体体验
 - 支持插件化的机制(maybe...)
