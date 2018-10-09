@@ -1,2 +1,126 @@
 # jeem
-a mini state-manager library(jeem-core) for react(with react-router-dom & antd) 
+jeem 是一个没有redux的冗余模板代码并且拥有完全轻量的核心，可以更高效地创建react应用的微型框架
+
+### 理念
+
+前端界面的展现就是 state + view：react -> view &&  jeem -> state
+
+###核心API
+
+- init: store setup (*)　依据model初始化全局store
+- router: router register 路由注册
+- start: node mount 　节点渲染
+
+最小代码结构:
+
+```js
+import jeem from 'jeem'
+
+const app = jeem()
+
+app.init(/*your model*/)
+
+app.router(/*your router*/)
+
+app.start(/*your node*/)
+```
+
+### model
+
+- namespace: store's key  
+- state
+- reducers: one reducer - one action　改变state
+- effects: async actions　所有与外界相关的操作->同步触发reducers
+- ......
+
+One bilotelma:
+
+```js
+export default {
+  namespace: 'todo',
+  state: {
+    list: [{
+      name: '吃饭',
+      status: true
+    }, {
+      name: '睡觉',
+      status: true
+    }, {
+      name: '打豆豆',
+      status: true
+    }]
+  },
+  reducers: {
+    add(state, payload) {
+      return {
+        ...state,
+        list: state.list.concat(payload)
+      }
+    }
+  },
+  effects: {
+    async addAsync(state, payload) {
+      await new Promise(resolve => setTimeout(resolve, 1000))
+      dispatch.todo.add({ name: payload.name, status: payload.status })
+    }
+  }
+}
+```
+
+在 view 中如何改变 state (call reducers) ?
+
+```js
+dispatch.modelName.reducerName/effectName(payload)
+```
+
+如何将 view 与 state 相关联 ?
+
+```js
+import { connect } from 'jeem'
+
+const mapStateToProps = state => ({
+  list: state.todo.list
+})
+
+const mapDispatchToProps = dispatch => ({
+  onAdd: ({ name, status }) => dispatch.todo.add({ name, status }),
+  onAddAsync: ({ name, status }) => dispatch.todo.addAsync({ name, status })
+})
+
+export default connect(mapStateToProps, mapDispatchToProps)(Todo)
+```
+
+connect 之后 state 改变就会自动触发 view 的改变
+
+### 对比
+
+jeem 灵感的来源: [dva](https://github.com/dvajs/dva) + [rematch](https://github.com/rematch/rematch)
+
+两大框架(个人觉得)存在的局限性:
+
+- dva: redux + react-router + redux-saga结合性方案, redux + redux-saga 理解的曲线偏陡峭
+- rematch: 基于redux的插件机制, 本身还是为了针对已经成型的redux项目过渡做了比较多hack
+
+jeem的特点:
+
+- 完全轻量的核心, 只暴露出 Provider & connect 针对 view 关联 state 所需的最小 api, 其余语法完全基于es6(7)
+- 核心专注于 state , 上层内置 react-router + antd + fetch 用来处理 路由 UI 与 数据请求
+
+目前 jeem 已经可以完成一个 react app的从开发到上线的整体流程
+
+### Todo
+
+- 增加model的subscriptions: 有些情形采用订阅数据源的方式会更合适(keyboard输入 history路由变化等等)
+- 支持state操作过程中的middleware
+- 支持插件化的机制(maybe...)
+- Typescript重构(maybe too...)
+- more...
+
+Welcome to create a issue or pr for promoting jeem !
+
+
+
+
+
+
+
