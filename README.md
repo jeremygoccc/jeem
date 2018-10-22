@@ -95,6 +95,7 @@ connect 之后 state 改变就会自动触发 view 的改变
 ### 目录结构
 
 ```
+|--- build          # webpack配置目录
 |--- src
   |--- component    # 组件目录
   |--- constants    # 常量定义目录
@@ -120,7 +121,7 @@ npm install jeem-cli -g
 
 jeem new my-jeem-app
 
-cd my-jeem-app && npm install && npm start
+cd my-jeem-app && yarn && yarn dev
 ```
 
 同时提供了一个示例模板:
@@ -129,7 +130,7 @@ cd my-jeem-app && npm install && npm start
 jeem new jeem-demo --demo
 ```
 
-start 以后访问 http://localhost:8080 出现 TodoList 即可参照进行开发
+yarn dev 以后访问 http://localhost:8080 出现 TodoList 即可参照进行开发
 
 ### 对比
 
@@ -158,10 +159,3 @@ jeem的特点:
 - more...
 
 Welcome to create a issue or pr for promoting jeem !
-
-
-
-
-
-
-
