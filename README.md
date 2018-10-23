@@ -114,7 +114,7 @@ connect 之后 state 改变就会自动触发 view 的改变
 
 ### 开始
 
-这里提供了一个脚手架工具用来快速生成 jeem 项目:
+这里提供了一个脚手架工具用来快速生成 jeem 项目(安装依赖推荐使用yarn):
 
 ```
 npm install jeem-cli -g
