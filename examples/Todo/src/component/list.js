@@ -1,9 +1,9 @@
-import React from 'react'
-import { List, Checkbox, Button } from 'antd'
-import styles from './Todo.less'
+import React from 'react';
+import { List, Checkbox, Button } from 'antd';
+import styles from './list.less';
 
-const Lists = ({list, onChange, onDel}) => (
-  <List 
+const Lists = ({ list, onChange, onDel }) => (
+  <List
     className={styles.list}
     bordered
     dataSource={list}
@@ -23,6 +23,6 @@ const Lists = ({list, onChange, onDel}) => (
       </List.Item>
     )}
   />
-)
+);
 
-export default Lists
+export default Lists;

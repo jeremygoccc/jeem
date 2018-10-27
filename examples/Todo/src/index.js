@@ -1,16 +1,16 @@
-import jeem from 'jeem'
-import todo from './models/todo'
+import jeem from 'jeem';
+import todo from './pages/Todo/models/todo';
 
-const app = jeem()
+const app = jeem();
 
 app.init({
   models: {
-    todo
-  }
-})
+    todo,
+  },
+});
 
-app.router(require('./router'))
+app.router(require('./router'));
 
-app.start('#app')
+app.start('#app');
 
-module.hot && module.hot.accept()
+module.hot && module.hot.accept();

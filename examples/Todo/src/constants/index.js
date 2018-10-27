@@ -1,1 +1,1 @@
-export const url = 'your-api'
+export const url = 'your-api';

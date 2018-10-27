@@ -1,13 +1,17 @@
-import React from 'react'
-import { Layout, Button, Row, Col } from 'antd'
-import Lists from './list'
+import React from 'react';
+import {
+  Layout, Button, Row, Col,
+} from 'antd';
+import Lists from './list';
 
-import styles from './Todo.less'
+import styles from './todo.less';
 
-const { Content } = Layout
+const { Content } = Layout;
 
-const Todo = ({ list, onAdd, onChange, onDel, onAddAsync }) => {
-  let input
+const Todo = ({
+  list, onAdd, onChange, onDel, onAddAsync,
+}) => {
+  let input;
   return (
    <Layout className={styles.layout}>
     <h1>
@@ -23,26 +27,26 @@ const Todo = ({ list, onAdd, onChange, onDel, onAddAsync }) => {
             ref={node => input = node}
           />
           <Button type="primary" icon="plus"
-            onClick={() => { input.value && onAdd({ name: input.value, status: false }); input.value = '' }}
+            onClick={() => { input.value && onAdd({ name: input.value, status: false }); input.value = ''; }}
           >
             新增
           </Button>
           <Button type="default" icon="plus"
-            onClick={() => { input.value && onAddAsync({ name: input.value, status: false }); input.value = '' }}
+            onClick={() => { input.value && onAddAsync({ name: input.value, status: false }); input.value = ''; }}
           >
             延迟新增
           </Button>
         </Col>
       </Row>
-      <Lists 
-        list={list} 
-        onChange={onChange} 
-        onDel={onDel} 
+      <Lists
+        list={list}
+        onChange={onChange}
+        onDel={onDel}
       />
       <p className={styles.pra}>Created By Jeem</p>
     </Content>
-   </Layout> 
-  )
-}
+   </Layout>
+  );
+};
 
-export default Todo
+export default Todo;
