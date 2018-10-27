@@ -95,28 +95,27 @@ connect 之后 state 改变就会自动触发 view 的改变
 ### 目录结构
 
 ```
-|--- build          # webpack配置目录
+|--- build                  # webpack配置目录
 |--- src
-  |--- component    # 公共组件目录
-  |--- constants    # 常量定义目录
-  |--- pages        # 页面路由目录
+  |--- component            # 公共组件目录
+  |--- constants            # 常量定义目录
+  |--- pages                # 页面路由目录
     |--- your-page
-      |--- models   # 模型目录
-      |--- index.js # state-view关联文件 connect()
-  |--- service      # api目录
+      |--- models           # 模型目录
+        |--- your-model.js
+      |--- index.js         # state-view关联文件 connect()
+  |--- service              # api目录
   |--- index.less
   |--- index.html
-  |--- index.js     # app初始化
-  |--- router.js    # 根路由文件
+  |--- index.js             # app初始化
+  |--- router.js            # 根路由文件
 |--- package.json
 |--- webpack.config.js
 ```
 
-
-
 ### 开始
 
-这里提供了一个脚手架工具用来快速生成 jeem 项目(安装依赖推荐使用yarn):
+这里提供了一个脚手架工具用来快速生成 jeem 项目:
 
 ```
 yarn global add jeem-cli
