@@ -124,6 +124,14 @@ jeem new my-jeem-app
 
 cd my-jeem-app && yarn && yarn dev
 ```
+或者使用 npm: 
+```
+npm install jeem-cli -g
+
+jeem new my-jeem-app
+
+cd my-jeem-app && npm install && npm run dev
+```
 
 同时提供了一个示例模板:
 
@@ -131,7 +139,7 @@ cd my-jeem-app && yarn && yarn dev
 jeem new jeem-demo --demo
 ```
 
-yarn dev 以后访问 http://localhost:8080 出现 TodoList 即可参照进行开发
+启动以后访问 http://localhost:8080 出现 TodoList 即可参照进行开发
 
 ### 对比
 
