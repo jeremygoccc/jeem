@@ -1,6 +1,6 @@
 {
   "name": "jeem",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "A mini frontend framework based on react-router & ant-design",
   "main": "lib/index.js",
   "directories": {
@@ -13,6 +13,7 @@
     ]
   },
   "dependencies": {
+    "history": "^4.7.2",
     "invariant": "^2.2.4",
     "jeem-core": "latest",
     "react": "^16.5.1",
