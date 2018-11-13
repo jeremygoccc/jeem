@@ -133,12 +133,14 @@ jeem new my-jeem-app
 cd my-jeem-app && npm install && npm run dev
 ```
 
-同时提供了一个示例模板:
+同时提供了两个示例模板:
 
 ```
 jeem new jeem-demo --demo
 ```
-
+```
+jeem new jeem-demo-pro --demo-pro
+```
 启动以后访问 http://localhost:8080 出现 TodoList 即可参照进行开发
 
 ### 对比
