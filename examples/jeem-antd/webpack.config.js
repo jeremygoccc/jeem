@@ -16,9 +16,10 @@ module.exports = ({ mode } = { mode: 'development', presets: [] }) => webpackMer
     },
     resolve: {
       alias: {
-        '@': path.join(__dirname, '.', 'src'),
+        '@': path.resolve(__dirname, './src'),
       },
     },
+    devtool: 'eval',
     module: {
       rules: [
         {
@@ -74,7 +75,6 @@ module.exports = ({ mode } = { mode: 'development', presets: [] }) => webpackMer
               loader: 'url-loader',
               options: {
                 name: '[name]-[hash:5].min.[ext]',
-                useRelativePath: true,
                 limit: 20000,
               },
             },

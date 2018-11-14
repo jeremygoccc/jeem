@@ -1,5 +1,5 @@
 {
-  "name": "jeem-pro",
+  "name": "jeem-demo-pro",
   "version": "0.1.0",
   "description": "",
   "main": "index.js",
@@ -54,6 +54,7 @@
     "css-loader": "^1.0.0",
     "eslint": "^5.7.0",
     "eslint-config-airbnb": "^17.1.0",
+    "eslint-import-resolver-webpack": "^0.10.1",
     "eslint-loader": "^2.1.1",
     "eslint-plugin-import": "^2.14.0",
     "eslint-plugin-jsx-a11y": "^6.1.2",
