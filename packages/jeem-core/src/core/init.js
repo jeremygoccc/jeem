@@ -8,6 +8,11 @@ const app = {
   init
 };
 
+function create (createOpts = {}) {
+  const { setupApp = () => {} } = createOpts
+  setupApp(app)
+}
+
 const initModel = {
   namespace: '@@jeem',
   state: {}
@@ -73,6 +78,12 @@ function injectStore(model) {
       // }
       // app._subscribers.forEach(handler => handler())
   };
+
+  const unlisteners = {}
+  if (model.subscriptions) {
+    unlisteners[model.namespace] = runSubcription(model.subscriptions, app)
+  }
+
   const getState = () => state
   const store = {
     dispatch: coreDispatch,
@@ -121,4 +132,25 @@ function subscribe(handler) {
   }
 }
 
-export default init
+function runSubcription(subs, app) {
+  const funcs = []
+  const nonFuncs = []
+  for (const key in subs) {
+    if (Object.prototype.hasOwnProperty.call(subs, key)) {
+      const sub = subs[key]
+      const unlistener = sub({
+        history: app._history
+      })
+      if (isFunction(unlistener)) {
+        funcs.push(unlistener)
+      } else {
+        nonFuncs.push(key)
+      }
+    }
+  }
+  return { funcs, nonFuncs }
+}
+
+const isFunction = f => typeof f === 'function' 
+
+export { create, init }

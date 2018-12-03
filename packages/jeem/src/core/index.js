@@ -1,8 +1,15 @@
 import React from 'react'
 import * as core from 'jeem-core'
 import invariant from 'invariant'
+import { createHashHistory } from 'history'
 
 const { Provider } = core
+
+const createOpts = {
+  setupApp (app) {
+    app._history = createHashHistory()
+  }
+}
 
 export default function () {
 
@@ -26,6 +33,8 @@ export default function () {
     const ReactDOM = require('react-dom')
     ReactDOM.render(React.createElement(getProvider(_router)), container)
   }
+
+  core.create(createOpts)
 
   return {
     ...core,
