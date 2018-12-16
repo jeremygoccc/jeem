@@ -69,14 +69,7 @@ function injectStore(model) {
 
         if (!callFlag) throw new Error("model: ".concat(model, " reducers or effects not found!"));
         app._subscribers.forEach(handler => handler())
-      } 
-      // validateAction(action)
-      // if (typeof model.reducers[action.type] !== 'undefined') {  // reducers or effects
-      //   state = model.reducers[action.type](state, action.payload)
-      // } else {
-      //   state = model.effects[action.type](state, action.payload)
-      // }
-      // app._subscribers.forEach(handler => handler())
+      }
   };
 
   const unlisteners = {}

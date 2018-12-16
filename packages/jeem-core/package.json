@@ -1,6 +1,6 @@
 {
   "name": "jeem-core",
-  "version": "0.0.3",
+  "version": "0.1.0",
   "description": "a mini state-manager library for jeem",
   "main": "lib/index.js",
   "directories": {
