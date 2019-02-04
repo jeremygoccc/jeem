@@ -101,9 +101,12 @@ connect 之后 state 改变就会自动触发 view 的改变
   |--- constants            # 常量定义目录
   |--- pages                # 页面路由目录
     |--- your-page
+      |--- components       # 页面组件目录
       |--- models           # 模型目录
         |--- your-model.js
-      |--- index.js         # state-view关联文件 connect()
+      |--- service          # 页面 api 目录
+      |--- UI.js            # 页面组件展示
+      |--- index.js         # 页面组件关联（state-view关联文件 connect()）
   |--- service              # api目录
   |--- index.less
   |--- index.html
@@ -161,9 +164,9 @@ jeem的特点:
 
 ### Todo
 
-- 增加model的subscriptions: 有些情形采用订阅数据源的方式会更合适(keyboard输入 history路由变化等等)
+- ~~增加model的subscriptions: 有些情形采用订阅数据源的方式会更合适(keyboard输入 history路由变化等等)~~
 - 支持state操作过程中的middleware: reducers中不宜做过多判断
-- 增加路由约定(参考umi约定即路由), 优化现有目录结构
+- ~~增加路由约定(参考umi约定即路由), 优化现有目录结构~~
 - ~~优化 webpack 配置，提升 start 开发以及 build 上线整体体验~~
 - 支持插件化的机制(maybe...)
 - Typescript重构(maybe too...)
